@@ -24,7 +24,7 @@ const solanaMetadata = {
 // If you have selected Solana then the collection starts from 0 automatically
 const layerConfigurations = [
   {
-    growEditionSizeTo: 5,
+    growEditionSizeTo: 10,
     layersOrder: [
       { name: "Background" },
       { name: "Eyeball" },
@@ -32,6 +32,36 @@ const layerConfigurations = [
       { name: "Iris" },
       { name: "Shine" },
       { name: "Bottom lid" },
+      { name: "Top lid" },
+    ],
+  },
+  {
+    growEditionSizeTo: 20,
+    layersOrder: [
+      {
+        name: "Background" ,
+        options: {
+          bypassDNA: false,
+        },
+      },
+      { name: "Eyeball" },
+      {
+        name: "Eye color",
+        options: {
+          blend: MODE.destinationIn,
+          opacity: 0.2,
+          displayName: "Awesome Eye Color",
+        },
+      },
+      { name: "Iris" },
+      { name: "Shine" },
+      { 
+        name: "Bottom lid",
+        options: {
+          blend: MODE.overlay,
+          opacity: 0.7,
+        }
+      },
       { name: "Top lid" },
     ],
   },
@@ -119,4 +149,33 @@ module.exports = {
   solanaMetadata,
   gif,
   preview_gif,
+};
+
+const MODE_REF = {
+  sourceOver: "source-over",
+  sourceIn: "source-in",
+  sourceOut: "source-out",
+  sourceAtop: "source-out",
+  destinationOver: "destination-over",
+  destinationIn: "destination-in",
+  destinationOut: "destination-out",
+  destinationAtop: "destination-atop",
+  lighter: "lighter",
+  copy: "copy",
+  xor: "xor",
+  multiply: "multiply",
+  screen: "screen",
+  overlay: "overlay",
+  darken: "darken",
+  lighten: "lighten",
+  colorDodge: "color-dodge",
+  colorBurn: "color-burn",
+  hardLight: "hard-light",
+  softLight: "soft-light",
+  difference: "difference",
+  exclusion: "exclusion",
+  hue: "hue",
+  saturation: "saturation",
+  color: "color",
+  luminosity: "luminosity",
 };
